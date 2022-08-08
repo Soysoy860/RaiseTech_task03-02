@@ -6,22 +6,22 @@ import java.util.Map;
  */
 public class Main {
     public static void main(String[] args) {
-        Map<String, Integer> score = new HashMap<>();
-        score.put("国語", 70);
-        score.put("数学", 65);
-        score.put("英語", 80);
+        Map<String, Integer> subjectScoreMap = new HashMap<>();
+        subjectScoreMap.put("国語", 70);
+        subjectScoreMap.put("数学", 65);
+        subjectScoreMap.put("英語", 80);
 
       String subject = "社会";
 
         try {
-            if (score.get(subject) == null) {
-                throw new Exception("指定した科目のスコアはありません");
+            if (subjectScoreMap.get(subject) == null) {
+                throw new IllegalArgumentException("指定した科目はありません");
             }
-            System.out.println(score.get(subject));
-        } catch (Exception e) {
+            System.out.println(subjectScoreMap.get(subject));
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println( "以下の科目から選択してください");
-            for(String key : score.keySet()){
+            for(String key : subjectScoreMap.keySet()){
                 System.out.println(key);
             }
 
